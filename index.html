@@ -1,49 +1,139 @@
-AutoTrade
-1 $ = 90.0 ₽ ✏️
-ЧИСТЫЙ КАПИТАЛ (ВСЁ − ДОЛГИ)
-0 ₽
-$ 0
-💰 ДЕНЬГИ НА РУКАХ
-✏️
-В рублях
-0 ₽
-В долларах
-$ 0
-В ЗАКАЗАХ / АВТО
-0 ₽
-$ 0
-ЧИСТАЯ ПРИБЫЛЬ
-0 ₽
-$ 0
-МОИ ДОЛГИ К ВОЗВРАТУ
-0 ₽
-$ 0
-РАЗБИВКА АКТИВОВ
-💵 Свободные (на руках)
-0 ₽
-$ 0
-🚚 В заказах (в пути)
-0 ₽
-$ 0
-📍 В наличии (авто+товары)
-0 ₽
-$ 0
-Итого активов
-0 ₽
-$ 0
-СТАТУС АВТО
-0
-🚚 В пути
-0
-📍 В наличии
-+ Добавить автомобиль
-📊
-Сводка
-🚗
-Машины
-📱
-Товары
-💵
-Долги
-⚙️
-Ещё
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0f172a">
+<title>AutoTrade</title>
+<style>
+:root{--h:#0f172a;--bg:#f1f5f9;--c:#fff;--p:#1e40af;--ok:#059669;--bad:#dc2626;--t:#0f172a;--m:#64748b;--b:#e2e8f0;--r:16px;--sb:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;background:var(--bg);color:var(--t);overflow-x:hidden}
+body{padding-bottom:calc(68px + var(--sb))}
+.hdr{position:sticky;top:0;z-index:100;background:var(--h);color:#fff;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.hdr h1{font-size:1.25rem;font-weight:700}.hdr h1 span{color:#38bdf8}
+.rate{background:rgba(255,255,255,.12);border-radius:20px;padding:6px 12px;font-size:.85rem;border:none;color:#fff;cursor:pointer}
+.scr{display:none;padding:16px}.scr.on{display:block}
+.cd{background:var(--c);border-radius:var(--r);padding:16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.08);border:1px solid var(--b)}
+.ct{font-size:.72rem;font-weight:600;color:var(--m);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+.cv{font-size:1.5rem;font-weight:700}.cs{font-size:.85rem;color:var(--m);margin-top:2px}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}.cg .cd{margin-bottom:0}
+.pos{color:var(--ok)}.neg{color:var(--bad)}
+.cap{background:linear-gradient(135deg,#0f172a,#1e3a5f);color:#fff;border:none;border-radius:18px;padding:18px 16px;margin-bottom:12px}
+.cap .ct{color:rgba(255,255,255,.65)}.cap .cs{color:#38bdf8}
+.cash{background:linear-gradient(135deg,#064e3b,#059669);color:#fff;border:none;border-radius:18px;padding:16px;margin-bottom:12px;cursor:pointer}
+.cash .ct{color:rgba(255,255,255,.75)}
+.cr{display:flex;gap:12px;margin-top:8px}.ci{flex:1}.ci .l{font-size:.7rem;opacity:.8}.ci .v{font-size:1.15rem;font-weight:700}
+.dbt{background:#fef2f2;border:1px solid #fecaca;border-left:4px solid #dc2626;border-radius:14px;padding:14px 16px;margin-bottom:12px}
+.dbt .ct{color:#dc2626}.dbt .cv{color:#dc2626;font-size:1.3rem}.dbt .cs{color:#b91c1c}
+.bd{background:var(--c);border-radius:var(--r);padding:14px 16px;margin-bottom:12px;border:1px solid var(--b)}
+.br{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--b);font-size:.9rem}
+.br:last-child{border-bottom:none;font-weight:700;padding-top:10px}
+.br .l{color:var(--m)}.br .r{text-align:right}.br .r small{display:block;font-size:.75rem;color:var(--m);font-weight:400}
+.fl{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none}
+.fb{flex-shrink:0;padding:8px 14px;border-radius:20px;border:1px solid var(--b);background:var(--c);font-size:.82rem;font-weight:500;color:var(--m);cursor:pointer}
+.fb.on{background:var(--p);color:#fff;border-color:var(--p)}
+.li{background:var(--c);border-radius:var(--r);padding:14px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.08);border:1px solid var(--b)}
+.lh{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.lt{font-weight:700;font-size:1.05rem}.lm{font-size:.78rem;color:var(--m);margin-top:3px}
+.bg{display:inline-flex;padding:4px 10px;border-radius:10px;font-size:.7rem;font-weight:700;text-transform:uppercase}
+.bw{background:#fef3c7;color:#b45309}.bs{background:#d1fae5;color:#065f46}.bdg{background:#e0e7ff;color:#3730a3}
+.fx{background:#f8fafc;border-radius:12px;padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;margin-bottom:10px;font-size:.82rem}
+.fx .fl2{color:var(--m)}.fx .fv{font-weight:600}
+.ac{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:9px 14px;border-radius:12px;border:none;font-size:.82rem;font-weight:600;cursor:pointer}
+.bp{background:var(--p);color:#fff}.bok{background:var(--ok);color:#fff}.bb{background:var(--bad);color:#fff}
+.bo{background:#fff;border:1px solid var(--b);color:var(--t)}
+.bsm{padding:7px 11px;font-size:.78rem;border-radius:10px}
+.bbk{width:100%;padding:13px;font-size:.95rem;margin-top:6px;border-radius:14px}
+.bgh{background:transparent;border:1.5px dashed var(--b);color:var(--m)}
+.es{text-align:center;padding:48px 20px;color:var(--m)}.es .i{font-size:2.8rem;margin-bottom:12px;opacity:.45}
+.bn{position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--c);border-top:1px solid var(--b);display:flex;justify-content:space-around;padding:6px 0 calc(6px + var(--sb));box-shadow:0 -2px 12px rgba(0,0,0,.06)}
+.ni{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 2px;background:none;border:none;color:var(--m);font-size:.68rem;font-weight:500;cursor:pointer}
+.ni.on{color:var(--p)}.ni .i{font-size:1.3rem}
+.mo{position:fixed;inset:0;z-index:200;background:rgba(15,23,42,.5);display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(3px)}
+.mo.open{display:flex}
+.md{background:var(--c);width:100%;max-width:480px;border-radius:20px 20px 0 0;max-height:90vh;overflow-y:auto;padding:20px 16px calc(24px + var(--sb))}
+.mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.mh h2{font-size:1.15rem;font-weight:700}
+.mx{width:34px;height:34px;border-radius:50%;border:none;background:var(--bg);font-size:1.25rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.fg{margin-bottom:14px}.fg label{display:block;font-size:.78rem;font-weight:600;color:var(--m);margin-bottom:5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:12px 14px;border:1px solid var(--b);border-radius:12px;font-size:1rem;background:#fff;outline:none;-webkit-appearance:none}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fa{display:flex;gap:10px;margin-top:10px}.fa .btn{flex:1;padding:13px;border-radius:12px}
+.sr{display:flex;gap:8px}.sc{flex:1;background:#f1f5f9;border-radius:12px;padding:12px 8px;text-align:center}
+.sc .n{font-size:1.25rem;font-weight:700}.sc .l{font-size:.72rem;color:var(--m);margin-top:2px}
+.st{font-size:.78rem;font-weight:700;margin:18px 0 10px;color:var(--m);text-transform:uppercase}
+.si{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--b)}
+.si:last-child{border-bottom:none}.pd{text-decoration:line-through;color:var(--m)}
+.su{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--b)}
+.su:last-child{border-bottom:none}
+.hid{display:none!important}.ts{font-size:.85rem}.tm{color:var(--m)}.fbw{display:flex;justify-content:space-between;align-items:center}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <h1>Auto<span>Trade</span></h1>
+  <button class="rate" onclick="openRate()">1 $ = <strong id="rd">90.0</strong> ₽ ✏️</button>
+</header>
+
+<section id="s-sum" class="scr on">
+  <div class="cd cap"><div class="ct">Чистый капитал (всё − долги)</div><div class="cv" id="ncR">0 ₽</div><div class="cs" id="ncU">$ 0</div></div>
+  <div class="cd cash" onclick="openCash()"><div class="ct">💰 Деньги на руках <span style="float:right;opacity:.7">✏️</span></div>
+    <div class="cr"><div class="ci"><div class="l">В рублях</div><div class="v" id="cR">0 ₽</div></div><div class="ci"><div class="l">В долларах</div><div class="v" id="cU">$ 0</div></div></div>
+  </div>
+  <div class="cg">
+    <div class="cd"><div class="ct">В заказах / авто</div><div class="cv" style="font-size:1.15rem" id="frR">0 ₽</div><div class="cs" id="frU">$ 0</div></div>
+    <div class="cd"><div class="ct">Чистая прибыль</div><div class="cv pos" style="font-size:1.15rem" id="prR">0 ₽</div><div class="cs pos" id="prU">$ 0</div></div>
+  </div>
+  <div class="cd dbt"><div class="ct">Мои долги к возврату</div><div class="cv" id="dbR">0 ₽</div><div class="cs" id="dbU">$ 0</div></div>
+  <div class="bd">
+    <div class="ct" style="margin-bottom:8px">Разбивка активов</div>
+    <div class="br"><span class="l">💵 Свободные (на руках)</span><div class="r"><span id="bCR">0 ₽</span><small id="bCU">$ 0</small></div></div>
+    <div class="br"><span class="l">🚚 В заказах (в пути)</span><div class="r"><span id="bTR">0 ₽</span><small id="bTU">$ 0</small></div></div>
+    <div class="br"><span class="l">📍 В наличии (авто+товары)</span><div class="r"><span id="bSR">0 ₽</span><small id="bSU">$ 0</small></div></div>
+    <div class="br"><span class="l">Итого активов</span><div class="r"><span id="bAR">0 ₽</span><small id="bAU">$ 0</small></div></div>
+  </div>
+  <div class="cd"><div class="ct">Статус авто</div>
+    <div class="sr" style="margin:10px 0 0"><div class="sc"><div class="n" id="nT">0</div><div class="l">🚚 В пути</div></div><div class="sc"><div class="n" id="nS">0</div><div class="l">📍 В наличии</div></div></div>
+    <button class="btn bp bbk" onclick="openCar()">+ Добавить автомобиль</button>
+  </div>
+</section>
+
+<section id="s-cars" class="scr">
+  <div class="fl">
+    <button class="fb on" data-f="all" onclick="fCars('all')">Все</button>
+    <button class="fb" data-f="transit" onclick="fCars('transit')">В пути</button>
+    <button class="fb" data-f="stock" onclick="fCars('stock')">В наличии</button>
+    <button class="fb" data-f="sold" onclick="fCars('sold')">Проданы</button>
+  </div>
+  <div id="carsL"></div>
+  <button class="btn bp bbk" onclick="openCar()">+ Добавить авто</button>
+</section>
+
+<section id="s-goods" class="scr"><div id="goodsL"></div><button class="btn bp bbk" onclick="openGood()">+ Добавить товар</button></section>
+<section id="s-debts" class="scr"><div id="debtsL"></div><button class="btn bp bbk" onclick="openDebt()">+ Записать долг</button></section>
+
+<section id="s-more" class="scr">
+  <div class="cd"><div class="ct">Поставщики (Киргизия)</div><div id="supL"></div><button class="btn bgh bbk" onclick="openSup()">+ Добавить поставщика</button></div>
+  <div class="st">Мурабаха</div><div id="murL"></div><button class="btn bgh bbk" onclick="openMur()">+ Новая сделка</button>
+  <div class="st">Данные</div>
+  <div class="cd">
+    <button class="btn bo bbk" onclick="expD()">💾 Скачать JSON</button>
+    <button class="btn bo bbk" onclick="document.getElementById('impF').click()">📥 Загрузить JSON</button>
+    <input type="file" id="impF" accept=".json" class="hid" onchange="impD(event)">
+    <button class="btn bo bbk" style="color:#dc2626;border-color:#fecaca;background:#fef2f2" onclick="demo()">🔄 Сбросить и демо</button>
+    <button class="btn bb bbk" onclick="clr()">🗑️ Очистить все</button>
+  </div>
+</section>
+
+<nav class="bn">
+  <button class="ni on" data-s="sum" onclick="go('sum')"><span class="i">📊</span>Сводка</button>
+  <button class="ni" data-s="cars" onclick="go('cars')"><span class="i">🚗</span>Машины</button>
+  <button class="ni" data-s="goods" onclick="go('goods')"><span class="i">📱</span>Товары</button>
+  <button class="ni" data-s="debts" onclick="go('debts')"><span class="i">💵</span>Долги</button>
+  <button class="ni" data-s="more" onclick="go('more')"><span class="i">⚙️</span>Ещё</button>
+</nav>
+
+<div class="mo" id="ov" onclick="if(event.target===this)closeM()"><div class="md" id="mc"></div></div>
+
+<script>
