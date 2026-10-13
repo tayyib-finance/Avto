@@ -73,65 +73,65 @@ body{padding-bottom:calc(68px + var(--sb))}
 <body>
 <header class="hdr">
   <h1>Auto<span>Trade</span></h1>
-  <button class="rate" onclick="openRate()">1 $ = <strong id="rd">90.0</strong> ₽ ✏️</button>
+  <button class="rate" onclick="openRate()">1 $ = <strong id="rd">90.0</strong> â½ âï¸</button>
 </header>
 
 <section id="s-sum" class="scr on">
-  <div class="cd cap"><div class="ct">Чистый капитал (всё − долги)</div><div class="cv" id="ncR">0 ₽</div><div class="cs" id="ncU">$ 0</div></div>
-  <div class="cd cash" onclick="openCash()"><div class="ct">💰 Деньги на руках <span style="float:right;opacity:.7">✏️</span></div>
-    <div class="cr"><div class="ci"><div class="l">В рублях</div><div class="v" id="cR">0 ₽</div></div><div class="ci"><div class="l">В долларах</div><div class="v" id="cU">$ 0</div></div></div>
+  <div class="cd cap"><div class="ct">Ð§Ð¸ÑÑÑÐ¹ ÐºÐ°Ð¿Ð¸ÑÐ°Ð» (Ð²ÑÑ â Ð´Ð¾Ð»Ð³Ð¸)</div><div class="cv" id="ncR">0 â½</div><div class="cs" id="ncU">$ 0</div></div>
+  <div class="cd cash" onclick="openCash()"><div class="ct">ð° ÐÐµÐ½ÑÐ³Ð¸ Ð½Ð° ÑÑÐºÐ°Ñ <span style="float:right;opacity:.7">âï¸</span></div>
+    <div class="cr"><div class="ci"><div class="l">Ð ÑÑÐ±Ð»ÑÑ</div><div class="v" id="cR">0 â½</div></div><div class="ci"><div class="l">Ð Ð´Ð¾Ð»Ð»Ð°ÑÐ°Ñ</div><div class="v" id="cU">$ 0</div></div></div>
   </div>
   <div class="cg">
-    <div class="cd"><div class="ct">В заказах / авто</div><div class="cv" style="font-size:1.15rem" id="frR">0 ₽</div><div class="cs" id="frU">$ 0</div></div>
-    <div class="cd"><div class="ct">Чистая прибыль</div><div class="cv pos" style="font-size:1.15rem" id="prR">0 ₽</div><div class="cs pos" id="prU">$ 0</div></div>
+    <div class="cd"><div class="ct">Ð Ð·Ð°ÐºÐ°Ð·Ð°Ñ / Ð°Ð²ÑÐ¾</div><div class="cv" style="font-size:1.15rem" id="frR">0 â½</div><div class="cs" id="frU">$ 0</div></div>
+    <div class="cd"><div class="ct">Ð§Ð¸ÑÑÐ°Ñ Ð¿ÑÐ¸Ð±ÑÐ»Ñ</div><div class="cv pos" style="font-size:1.15rem" id="prR">0 â½</div><div class="cs pos" id="prU">$ 0</div></div>
   </div>
-  <div class="cd dbt"><div class="ct">Мои долги к возврату</div><div class="cv" id="dbR">0 ₽</div><div class="cs" id="dbU">$ 0</div></div>
+  <div class="cd dbt"><div class="ct">ÐÐ¾Ð¸ Ð´Ð¾Ð»Ð³Ð¸ Ðº Ð²Ð¾Ð·Ð²ÑÐ°ÑÑ</div><div class="cv" id="dbR">0 â½</div><div class="cs" id="dbU">$ 0</div></div>
   <div class="bd">
-    <div class="ct" style="margin-bottom:8px">Разбивка активов</div>
-    <div class="br"><span class="l">💵 Свободные (на руках)</span><div class="r"><span id="bCR">0 ₽</span><small id="bCU">$ 0</small></div></div>
-    <div class="br"><span class="l">🚚 В заказах (в пути)</span><div class="r"><span id="bTR">0 ₽</span><small id="bTU">$ 0</small></div></div>
-    <div class="br"><span class="l">📍 В наличии (авто+товары)</span><div class="r"><span id="bSR">0 ₽</span><small id="bSU">$ 0</small></div></div>
-    <div class="br"><span class="l">Итого активов</span><div class="r"><span id="bAR">0 ₽</span><small id="bAU">$ 0</small></div></div>
+    <div class="ct" style="margin-bottom:8px">Ð Ð°Ð·Ð±Ð¸Ð²ÐºÐ° Ð°ÐºÑÐ¸Ð²Ð¾Ð²</div>
+    <div class="br"><span class="l">ðµ Ð¡Ð²Ð¾Ð±Ð¾Ð´Ð½ÑÐµ (Ð½Ð° ÑÑÐºÐ°Ñ)</span><div class="r"><span id="bCR">0 â½</span><small id="bCU">$ 0</small></div></div>
+    <div class="br"><span class="l">ð Ð Ð·Ð°ÐºÐ°Ð·Ð°Ñ (Ð² Ð¿ÑÑÐ¸)</span><div class="r"><span id="bTR">0 â½</span><small id="bTU">$ 0</small></div></div>
+    <div class="br"><span class="l">ð Ð Ð½Ð°Ð»Ð¸ÑÐ¸Ð¸ (Ð°Ð²ÑÐ¾+ÑÐ¾Ð²Ð°ÑÑ)</span><div class="r"><span id="bSR">0 â½</span><small id="bSU">$ 0</small></div></div>
+    <div class="br"><span class="l">ÐÑÐ¾Ð³Ð¾ Ð°ÐºÑÐ¸Ð²Ð¾Ð²</span><div class="r"><span id="bAR">0 â½</span><small id="bAU">$ 0</small></div></div>
   </div>
-  <div class="cd"><div class="ct">Статус авто</div>
-    <div class="sr" style="margin:10px 0 0"><div class="sc"><div class="n" id="nT">0</div><div class="l">🚚 В пути</div></div><div class="sc"><div class="n" id="nS">0</div><div class="l">📍 В наличии</div></div></div>
-    <button class="btn bp bbk" onclick="openCar()">+ Добавить автомобиль</button>
+  <div class="cd"><div class="ct">Ð¡ÑÐ°ÑÑÑ Ð°Ð²ÑÐ¾</div>
+    <div class="sr" style="margin:10px 0 0"><div class="sc"><div class="n" id="nT">0</div><div class="l">ð Ð Ð¿ÑÑÐ¸</div></div><div class="sc"><div class="n" id="nS">0</div><div class="l">ð Ð Ð½Ð°Ð»Ð¸ÑÐ¸Ð¸</div></div></div>
+    <button class="btn bp bbk" onclick="openCar()">+ ÐÐ¾Ð±Ð°Ð²Ð¸ÑÑ Ð°Ð²ÑÐ¾Ð¼Ð¾Ð±Ð¸Ð»Ñ</button>
   </div>
 </section>
 
 <section id="s-cars" class="scr">
   <div class="fl">
-    <button class="fb on" data-f="all" onclick="fCars('all')">Все</button>
-    <button class="fb" data-f="transit" onclick="fCars('transit')">В пути</button>
-    <button class="fb" data-f="stock" onclick="fCars('stock')">В наличии</button>
-    <button class="fb" data-f="sold" onclick="fCars('sold')">Проданы</button>
+    <button class="fb on" data-f="all" onclick="fCars('all')">ÐÑÐµ</button>
+    <button class="fb" data-f="transit" onclick="fCars('transit')">Ð Ð¿ÑÑÐ¸</button>
+    <button class="fb" data-f="stock" onclick="fCars('stock')">Ð Ð½Ð°Ð»Ð¸ÑÐ¸Ð¸</button>
+    <button class="fb" data-f="sold" onclick="fCars('sold')">ÐÑÐ¾Ð´Ð°Ð½Ñ</button>
   </div>
   <div id="carsL"></div>
-  <button class="btn bp bbk" onclick="openCar()">+ Добавить авто</button>
+  <button class="btn bp bbk" onclick="openCar()">+ ÐÐ¾Ð±Ð°Ð²Ð¸ÑÑ Ð°Ð²ÑÐ¾</button>
 </section>
 
-<section id="s-goods" class="scr"><div id="goodsL"></div><button class="btn bp bbk" onclick="openGood()">+ Добавить товар</button></section>
-<section id="s-debts" class="scr"><div id="debtsL"></div><button class="btn bp bbk" onclick="openDebt()">+ Записать долг</button></section>
+<section id="s-goods" class="scr"><div id="goodsL"></div><button class="btn bp bbk" onclick="openGood()">+ ÐÐ¾Ð±Ð°Ð²Ð¸ÑÑ ÑÐ¾Ð²Ð°Ñ</button></section>
+<section id="s-debts" class="scr"><div id="debtsL"></div><button class="btn bp bbk" onclick="openDebt()">+ ÐÐ°Ð¿Ð¸ÑÐ°ÑÑ Ð´Ð¾Ð»Ð³</button></section>
 
 <section id="s-more" class="scr">
-  <div class="cd"><div class="ct">Поставщики (Киргизия)</div><div id="supL"></div><button class="btn bgh bbk" onclick="openSup()">+ Добавить поставщика</button></div>
-  <div class="st">Мурабаха</div><div id="murL"></div><button class="btn bgh bbk" onclick="openMur()">+ Новая сделка</button>
-  <div class="st">Данные</div>
+  <div class="cd"><div class="ct">ÐÐ¾ÑÑÐ°Ð²ÑÐ¸ÐºÐ¸ (ÐÐ¸ÑÐ³Ð¸Ð·Ð¸Ñ)</div><div id="supL"></div><button class="btn bgh bbk" onclick="openSup()">+ ÐÐ¾Ð±Ð°Ð²Ð¸ÑÑ Ð¿Ð¾ÑÑÐ°Ð²ÑÐ¸ÐºÐ°</button></div>
+  <div class="st">ÐÑÑÐ°Ð±Ð°ÑÐ°</div><div id="murL"></div><button class="btn bgh bbk" onclick="openMur()">+ ÐÐ¾Ð²Ð°Ñ ÑÐ´ÐµÐ»ÐºÐ°</button>
+  <div class="st">ÐÐ°Ð½Ð½ÑÐµ</div>
   <div class="cd">
-    <button class="btn bo bbk" onclick="expD()">💾 Скачать JSON</button>
-    <button class="btn bo bbk" onclick="document.getElementById('impF').click()">📥 Загрузить JSON</button>
+    <button class="btn bo bbk" onclick="expD()">ð¾ Ð¡ÐºÐ°ÑÐ°ÑÑ JSON</button>
+    <button class="btn bo bbk" onclick="document.getElementById('impF').click()">ð¥ ÐÐ°Ð³ÑÑÐ·Ð¸ÑÑ JSON</button>
     <input type="file" id="impF" accept=".json" class="hid" onchange="impD(event)">
-    <button class="btn bo bbk" style="color:#dc2626;border-color:#fecaca;background:#fef2f2" onclick="demo()">🔄 Сбросить и демо</button>
-    <button class="btn bb bbk" onclick="clr()">🗑️ Очистить все</button>
+    <button class="btn bo bbk" style="color:#dc2626;border-color:#fecaca;background:#fef2f2" onclick="demo()">ð Ð¡Ð±ÑÐ¾ÑÐ¸ÑÑ Ð¸ Ð´ÐµÐ¼Ð¾</button>
+    <button class="btn bb bbk" onclick="clr()">ðï¸ ÐÑÐ¸ÑÑÐ¸ÑÑ Ð²ÑÐµ</button>
   </div>
 </section>
 
 <nav class="bn">
-  <button class="ni on" data-s="sum" onclick="go('sum')"><span class="i">📊</span>Сводка</button>
-  <button class="ni" data-s="cars" onclick="go('cars')"><span class="i">🚗</span>Машины</button>
-  <button class="ni" data-s="goods" onclick="go('goods')"><span class="i">📱</span>Товары</button>
-  <button class="ni" data-s="debts" onclick="go('debts')"><span class="i">💵</span>Долги</button>
-  <button class="ni" data-s="more" onclick="go('more')"><span class="i">⚙️</span>Ещё</button>
+  <button class="ni on" data-s="sum" onclick="go('sum')"><span class="i">ð</span>Ð¡Ð²Ð¾Ð´ÐºÐ°</button>
+  <button class="ni" data-s="cars" onclick="go('cars')"><span class="i">ð</span>ÐÐ°ÑÐ¸Ð½Ñ</button>
+  <button class="ni" data-s="goods" onclick="go('goods')"><span class="i">ð±</span>Ð¢Ð¾Ð²Ð°ÑÑ</button>
+  <button class="ni" data-s="debts" onclick="go('debts')"><span class="i">ðµ</span>ÐÐ¾Ð»Ð³Ð¸</button>
+  <button class="ni" data-s="more" onclick="go('more')"><span class="i">âï¸</span>ÐÑÑ</button>
 </nav>
 
 <div class="mo" id="ov" onclick="if(event.target===this)closeM()"><div class="md" id="mc"></div></div>
@@ -149,9 +149,9 @@ function esc(s){return(s||'').replace(/"/g,'&quot;').replace(/</g,'&lt;')}
 function go(n){document.querySelectorAll('.scr').forEach(s=>s.classList.remove('on'));document.getElementById('s-'+n).classList.add('on');document.querySelectorAll('.ni').forEach(x=>x.classList.toggle('on',x.dataset.s===n));if(n==='sum')rSum();if(n==='cars')rCars();if(n==='goods')rGoods();if(n==='debts')rDebts();if(n==='more'){rSup();rMur()}}
 function openM(){document.getElementById('ov').classList.add('open');document.body.style.overflow='hidden'}
 function closeM(){document.getElementById('ov').classList.remove('open');document.body.style.overflow=''}
-function openRate(){document.getElementById('mc').innerHTML=`<div class="mh"><h2>Курс $</h2><button class="mx" onclick="closeM()">×</button></div><div class="fg"><label>1 $ = ? ₽</label><input type="number" id="ri" value="${db.settings.usdRate}" step="0.1"></div><div class="fa"><button class="btn bo" onclick="closeM()">Отмена</button><button class="btn bp" onclick="svRate()">OK</button></div>`;openM()}
-function svRate(){const v=parseFloat(document.getElementById('ri').value);if(!v||v<1){alert('Неверный курс');return}db.settings.usdRate=v;save();document.getElementById('rd').textContent=v.toFixed(1);closeM();rAll()}
-function openCash(){document.getElementById('mc').innerHTML=`<div class="mh"><h2>Деньги на руках</h2><button class="mx" onclick="closeM()">×</button></div><div class="fg"><label>Рубли (₽)</label><input type="number" id="cr" value="${db.settings.cashRub||0}"></div><div class="fg"><label>Доллары ($)</label><input type="number" id="cu" value="${db.settings.cashUsd||0}" step="0.01"></div><p class="ts tm">Свободные деньги</p><div class="fa"><button class="btn bo" onclick="closeM()">Отмена</button><button class="btn bp" onclick="svCash()">Сохранить</button></div>`;openM()}
+function openRate(){document.getElementById('mc').innerHTML=`<div class="mh"><h2>ÐÑÑÑ $</h2><button class="mx" onclick="closeM()">Ã</button></div><div class="fg"><label>1 $ = ? â½</label><input type="number" id="ri" value="${db.settings.usdRate}" step="0.1"></div><div class="fa"><button class="btn bo" onclick="closeM()">ÐÑÐ¼ÐµÐ½Ð°</button><button class="btn bp" onclick="svRate()">OK</button></div>`;openM()}
+function svRate(){const v=parseFloat(document.getElementById('ri').value);if(!v||v<1){alert('ÐÐµÐ²ÐµÑÐ½ÑÐ¹ ÐºÑÑÑ');return}db.settings.usdRate=v;save();document.getElementById('rd').textContent=v.toFixed(1);closeM();rAll()}
+function openCash(){document.getElementById('mc').innerHTML=`<div class="mh"><h2>ÐÐµÐ½ÑÐ³Ð¸ Ð½Ð° ÑÑÐºÐ°Ñ</h2><button class="mx" onclick="closeM()">Ã</button></div><div class="fg"><label>Ð ÑÐ±Ð»Ð¸ (â½)</label><input type="number" id="cr" value="${db.settings.cashRub||0}"></div><div class="fg"><label>ÐÐ¾Ð»Ð»Ð°ÑÑ ($)</label><input type="number" id="cu" value="${db.settings.cashUsd||0}" step="0.01"></div><p class="ts tm">Ð¡Ð²Ð¾Ð±Ð¾Ð´Ð½ÑÐµ Ð´ÐµÐ½ÑÐ³Ð¸, Ð½Ðµ Ð² Ð°Ð²ÑÐ¾/ÑÐ¾Ð²Ð°ÑÐ°Ñ</p><div class="fa"><button class="btn bo" onclick="closeM()">ÐÑÐ¼ÐµÐ½Ð°</button><button class="btn bp" onclick="svCash()">Ð¡Ð¾ÑÑÐ°Ð½Ð¸ÑÑ</button></div>`;openM()}
 function svCash(){db.settings.cashRub=parseFloat(document.getElementById('cr').value)||0;db.settings.cashUsd=parseFloat(document.getElementById('cu').value)||0;save();closeM();rAll()}
 function cost(c){let x=c.purchaseRub||0;(c.expenses||[]).forEach(e=>{x+=toR(e.amount,e.currency,e.rate)});return x}
 function profit(c){return c.status==='sold'&&c.salePriceRub?c.salePriceRub-cost(c):0}
@@ -162,41 +162,104 @@ const fr=tR+sR,cR=(db.settings.cashRub||0)+(db.settings.cashUsd||0)*rate;
 let dR=0,dU=0;db.debts.forEach(d=>{if(d.currency==='USD'){dU+=d.amount;dR+=d.amount*rate}else{dR+=d.amount;dU+=d.amount/rate}});
 const aR=cR+fr+pR;return{cRo:db.settings.cashRub||0,cUo:db.settings.cashUsd||0,cR,tR,tU:tR/rate,sR,sU:sR/rate,fr,frU:fr/rate,pR,pU:pR/rate,dR,dU,aR,aU:aR/rate,nR:aR-dR,nU:(aR-dR)/rate,t,s}}
 function rSum(){const t=tot();
-document.getElementById('ncR').textContent=fmt(t.nR)+' ₽';document.getElementById('ncU').textContent='$ '+fmt(t.nU,0);
-document.getElementById('cR').textContent=fmt(t.cRo)+' ₽';document.getElementById('cU').textContent='$ '+fmt(t.cUo,0);
-document.getElementById('frR').textContent=fmt(t.fr)+' ₽';document.getElementById('frU').textContent='$ '+fmt(t.frU,0);
-document.getElementById('prR').textContent=(t.pR>=0?'+':'')+fmt(t.pR)+' ₽';document.getElementById('prU').textContent=(t.pU>=0?'+$':'-$')+' '+fmt(Math.abs(t.pU),0);
-document.getElementById('dbR').textContent=fmt(t.dR)+' ₽';document.getElementById('dbU').textContent='$ '+fmt(t.dU,0);
-document.getElementById('bCR').textContent=fmt(t.cR)+' ₽';document.getElementById('bCU').textContent='$ '+fmt(t.cR/(db.settings.usdRate||90),0);
-document.getElementById('bTR').textContent=fmt(t.tR)+' ₽';document.getElementById('bTU').textContent='$ '+fmt(t.tU,0);
-document.getElementById('bSR').textContent=fmt(t.sR)+' ₽';document.getElementById('bSU').textContent='$ '+fmt(t.sU,0);
-document.getElementById('bAR').textContent=fmt(t.aR)+' ₽';document.getElementById('bAU').textContent='$ '+fmt(t.aU,0);
+document.getElementById('ncR').textContent=fmt(t.nR)+' â½';document.getElementById('ncU').textContent='$ '+fmt(t.nU,0);
+document.getElementById('cR').textContent=fmt(t.cRo)+' â½';document.getElementById('cU').textContent='$ '+fmt(t.cUo,0);
+document.getElementById('frR').textContent=fmt(t.fr)+' â½';document.getElementById('frU').textContent='$ '+fmt(t.frU,0);
+document.getElementById('prR').textContent=(t.pR>=0?'+':'')+fmt(t.pR)+' â½';document.getElementById('prU').textContent=(t.pU>=0?'+$':'-$')+' '+fmt(Math.abs(t.pU),0);
+document.getElementById('dbR').textContent=fmt(t.dR)+' â½';document.getElementById('dbU').textContent='$ '+fmt(t.dU,0);
+document.getElementById('bCR').textContent=fmt(t.cR)+' â½';document.getElementById('bCU').textContent='$ '+fmt(t.cR/(db.settings.usdRate||90),0);
+document.getElementById('bTR').textContent=fmt(t.tR)+' â½';document.getElementById('bTU').textContent='$ '+fmt(t.tU,0);
+document.getElementById('bSR').textContent=fmt(t.sR)+' â½';document.getElementById('bSU').textContent='$ '+fmt(t.sU,0);
+document.getElementById('bAR').textContent=fmt(t.aR)+' â½';document.getElementById('bAU').textContent='$ '+fmt(t.aU,0);
 document.getElementById('nT').textContent=t.t;document.getElementById('nS').textContent=t.s}
 function fCars(f){cf=f;document.querySelectorAll('#s-cars .fb').forEach(b=>b.classList.toggle('on',b.dataset.f===f));rCars()}
 function rCars(){const L=document.getElementById('carsL');let cars=db.cars.slice().reverse();if(cf!=='all')cars=cars.filter(c=>c.status===cf);
-if(!cars.length){L.innerHTML='<div class="es"><div class="i">🚗</div>Нет авто</div>';return}
+if(!cars.length){L.innerHTML='<div class="es"><div class="i">ð</div>ÐÐµÑ Ð°Ð²ÑÐ¾</div>';return}
 L.innerHTML=cars.map(c=>{const co=cost(c),pr=profit(c),sup=db.suppliers.find(s=>s.id===c.supplierId),ex=(c.expenses||[]).reduce((s,e)=>s+toR(e.amount,e.currency,e.rate),0);
-const bg=c.status==='transit'?'<span class="bg bw">В пути</span>':c.status==='stock'?'<span class="bg bs">В наличии</span>':'<span class="bg bdg">Продано</span>';
-const dt=[];if(c.orderDate)dt.push('Заказ: '+c.orderDate);if(c.saleDate)dt.push('Продажа: '+c.saleDate);
-let fx=`<div class="fx"><div><div class="fl2">Закупка</div><div class="fv">$${fmt(c.purchaseUsd,0)}<br><span class="tm">(${fmt(c.purchaseRub)} ₽)</span></div></div><div><div class="fl2">Расходы</div><div class="fv">${fmt(ex)} ₽</div></div><div><div class="fl2">Себестоимость</div><div class="fv">${fmt(co)} ₽</div></div><div><div class="fl2">Курс</div><div class="fv">${c.purchaseRate||'—'} ₽</div></div></div>`;
-if(c.expenses&&c.expenses.length)fx+=`<div class="ts tm" style="margin-bottom:8px">${c.expenses.map(e=>`• ${e.name}: ${e.currency==='USD'?'$'+fmt(e.amount,0):fmt(e.amount)+' ₽'}${e.date?' · '+e.date:''}`).join('<br>')}</div>`;
-if(c.status==='sold')fx+=`<div class="fx" style="background:#f0fdf4"><div><div class="fl2">Продажа</div><div class="fv">${fmt(c.salePriceRub)} ₽</div></div><div><div class="fl2">Прибыль</div><div class="fv ${pr>=0?'pos':'neg'}">${pr>=0?'+':''}${fmt(pr)} ₽</div></div><div style="grid-column:1/-1"><div class="fl2">Покупатель</div><div class="fv">${c.buyerName||'—'} ${c.buyerPhone||''}</div></div></div>`;
-let ac=`<div class="ac">`;if(c.status!=='sold'){ac+=`<button class="btn bo bsm" onclick="openExp('${c.id}')">+ Расход</button>`;if(c.status==='transit')ac+=`<button class="btn bo bsm" onclick="setSt('${c.id}','stock')">📍 Прибыла</button>`;ac+=`<button class="btn bp bsm" onclick="openSell('${c.id}')">💰 Продать</button>`}
-ac+=`<button class="btn bo bsm" onclick="openCar('${c.id}')">✏️</button><button class="btn bb bsm" onclick="delCar('${c.id}')">🗑️</button></div>`;
-return`<div class="li"><div class="lh"><div><div class="lt">${c.brand} ${c.model}${c.year?' ('+c.year+')':''}</div><div class="lm">VIN: ${c.vin||'—'} · ${sup?sup.name+(sup.city?' ('+sup.city+')':''):'—'}</div>${c.color||c.mileage||c.plate?`<div class="lm">${[c.color,c.mileage?fmt(c.mileage)+' км':'',c.plate].filter(Boolean).join(' · ')}</div>`:''}${dt.length?`<div class="lm">${dt.join(' · ')}</div>`:''}</div>${bg}</div>${fx}${ac}</div>`}).join('')}
+const bg=c.status==='transit'?'<span class="bg bw">Ð Ð¿ÑÑÐ¸</span>':c.status==='stock'?'<span class="bg bs">Ð Ð½Ð°Ð»Ð¸ÑÐ¸Ð¸</span>':'<span class="bg bdg">ÐÑÐ¾Ð´Ð°Ð½Ð¾</span>';
+const dt=[];if(c.orderDate)dt.push('ÐÐ°ÐºÐ°Ð·: '+c.orderDate);if(c.saleDate)dt.push('ÐÑÐ¾Ð´Ð°Ð¶Ð°: '+c.saleDate);
+let fx=`<div class="fx"><div><div class="fl2">ÐÐ°ÐºÑÐ¿ÐºÐ°</div><div class="fv">$${fmt(c.purchaseUsd,0)}<br><span class="tm">(${fmt(c.purchaseRub)} â½)</span></div></div><div><div class="fl2">Ð Ð°ÑÑÐ¾Ð´Ñ</div><div class="fv">${fmt(ex)} â½</div></div><div><div class="fl2">Ð¡ÐµÐ±ÐµÑÑÐ¾Ð¸Ð¼Ð¾ÑÑÑ</div><div class="fv">${fmt(co)} â½</div></div><div><div class="fl2">ÐÑÑÑ</div><div class="fv">${c.purchaseRate||'â'} â½</div></div></div>`;
+if(c.expenses&&c.expenses.length)fx+=`<div class="ts tm" style="margin-bottom:8px">${c.expenses.map(e=>`â¢ ${e.name}: ${e.currency==='USD'?'$'+fmt(e.amount,0):fmt(e.amount)+' â½'}${e.date?' Â· '+e.date:''}`).join('<br>')}</div>`;
+if(c.status==='sold')fx+=`<div class="fx" style="background:#f0fdf4"><div><div class="fl2">ÐÑÐ¾Ð´Ð°Ð¶Ð°</div><div class="fv">${fmt(c.salePriceRub)} â½</div></div><div><div class="fl2">ÐÑÐ¸Ð±ÑÐ»Ñ</div><div class="fv ${pr>=0?'pos':'neg'}">${pr>=0?'+':''}${fmt(pr)} â½</div></div><div style="grid-column:1/-1"><div class="fl2">ÐÐ¾ÐºÑÐ¿Ð°ÑÐµÐ»Ñ</div><div class="fv">${c.buyerName||'â'} ${c.buyerPhone||''}</div></div></div>`;
+let ac=`<div class="ac">`;if(c.status!=='sold'){ac+=`<button class="btn bo bsm" onclick="openExp('${c.id}')">+ Ð Ð°ÑÑÐ¾Ð´</button>`;if(c.status==='transit')ac+=`<button class="btn bo bsm" onclick="setSt('${c.id}','stock')">ð ÐÑÐ¸Ð±ÑÐ»Ð°</button>`;ac+=`<button class="btn bp bsm" onclick="openSell('${c.id}')">ð° ÐÑÐ¾Ð´Ð°ÑÑ</button>`}
+ac+=`<button class="btn bo bsm" onclick="openCar('${c.id}')">âï¸</button><button class="btn bb bsm" onclick="delCar('${c.id}')">ðï¸</button></div>`;
+return`<div class="li"><div class="lh"><div><div class="lt">${c.brand} ${c.model}${c.year?' ('+c.year+')':''}</div><div class="lm">VIN: ${c.vin||'â'} Â· ${sup?sup.name+(sup.city?' ('+sup.city+')':''):'â'}</div>${c.color||c.mileage||c.plate?`<div class="lm">${[c.color,c.mileage?fmt(c.mileage)+' ÐºÐ¼':'',c.plate].filter(Boolean).join(' Â· ')}</div>`:''}${dt.length?`<div class="lm">${dt.join(' Â· ')}</div>`:''}</div>${bg}</div>${fx}${ac}</div>`}).join('')}
 function openCar(id){const c=id?db.cars.find(x=>x.id===id):null;const so=db.suppliers.map(s=>`<option value="${s.id}" ${c&&c.supplierId===s.id?'selected':''}>${s.name}${s.city?' ('+s.city+')':''}</option>`).join('');
-document.getElementById('mc').innerHTML=`<div class="mh"><h2>${c?'Редактировать':'Новое авто'}</h2><button class="mx" onclick="closeM()">×</button></div>
-<div class="fg"><label>Марка *</label><input id="cb" value="${esc(c?.brand)}"></div><div class="fg"><label>Модель *</label><input id="cm" value="${esc(c?.model)}"></div>
-<div class="fr"><div class="fg"><label>Год</label><input type="number" id="cy" value="${c?.year||''}"></div><div class="fg"><label>Цвет</label><input id="cc" value="${esc(c?.color)}"></div></div>
-<div class="fr"><div class="fg"><label>Пробег</label><input type="number" id="cmi" value="${c?.mileage||''}"></div><div class="fg"><label>Госномер</label><input id="cp" value="${esc(c?.plate)}"></div></div>
+document.getElementById('mc').innerHTML=`<div class="mh"><h2>${c?'Ð ÐµÐ´Ð°ÐºÑÐ¸ÑÐ¾Ð²Ð°ÑÑ':'ÐÐ¾Ð²Ð¾Ðµ Ð°Ð²ÑÐ¾'}</h2><button class="mx" onclick="closeM()">Ã</button></div>
+<div class="fg"><label>ÐÐ°ÑÐºÐ° *</label><input id="cb" value="${esc(c?.brand)}"></div><div class="fg"><label>ÐÐ¾Ð´ÐµÐ»Ñ *</label><input id="cm" value="${esc(c?.model)}"></div>
+<div class="fr"><div class="fg"><label>ÐÐ¾Ð´</label><input type="number" id="cy" value="${c?.year||''}"></div><div class="fg"><label>Ð¦Ð²ÐµÑ</label><input id="cc" value="${esc(c?.color)}"></div></div>
+<div class="fr"><div class="fg"><label>ÐÑÐ¾Ð±ÐµÐ³</label><input type="number" id="cmi" value="${c?.mileage||''}"></div><div class="fg"><label>ÐÐ¾ÑÐ½Ð¾Ð¼ÐµÑ</label><input id="cp" value="${esc(c?.plate)}"></div></div>
 <div class="fg"><label>VIN</label><input id="cv" value="${esc(c?.vin)}"></div>
-<div class="fg"><label>Поставщик</label><select id="cs"><option value="">—</option>${so}</select></div>
-<div class="fg"><label>Статус</label><select id="cst"><option value="transit" ${!c||c.status==='transit'?'selected':''}>В пути</option><option value="stock" ${c?.status==='stock'?'selected':''}>В наличии</option><option value="sold" ${c?.status==='sold'?'selected':''}>Продана</option></select></div>
-<div class="fr"><div class="fg"><label>Дата заказа</label><input type="date" id="cod" value="${c?.orderDate||''}"></div><div class="fg"><label>Дата продажи</label><input type="date" id="csd" value="${c?.saleDate||''}"></div></div>
-<div class="fr"><div class="fg"><label>Закупка $ *</label><input type="number" id="cpu" value="${c?.purchaseUsd||''}" step="0.01" oninput="calcPR()"></div><div class="fg"><label>Курс покупки</label><input type="number" id="cpr" value="${c?.purchaseRate||db.settings.usdRate}" step="0.1" oninput="calcPR()"></div></div>
-<div class="fg"><label>Закупка ₽</label><input type="number" id="cprb" value="${c?.purchaseRub||''}" readonly style="background:#f8fafc"></div>
-${c&&(c.expenses||[]).length?`<div class="fg"><label>Расходы</label>${(c.expenses||[]).map((e,i)=>`<div class="fbw" style="padding:6px 0;border-bottom:1px solid #eee"><span class="ts">${e.name}: ${e.currency==='USD'?'$'+e.amount:fmt(e.amount)+' ₽'}${e.date?' · '+e.date:''}</span><button class="btn bb bsm" onclick="rmExp('${id}',${i})">×</button></div>`).join('')}</div>`:''}
-<div class="fa"><button class="btn bo" onclick="closeM()">Отмена</button><button class="btn bp" onclick="svCar('${id||''}')">Сохранить</button></div>`;openM();if(!c)calcPR()}
+<div class="fg"><label>ÐÐ¾ÑÑÐ°Ð²ÑÐ¸Ðº</label><select id="cs"><option value="">â</option>${so}</select></div>
+<div class="fg"><label>Ð¡ÑÐ°ÑÑÑ</label><select id="cst"><option value="transit" ${!c||c.status==='transit'?'selected':''}>Ð Ð¿ÑÑÐ¸</option><option value="stock" ${c?.status==='stock'?'selected':''}>Ð Ð½Ð°Ð»Ð¸ÑÐ¸Ð¸</option><option value="sold" ${c?.status==='sold'?'selected':''}>ÐÑÐ¾Ð´Ð°Ð½Ð°</option></select></div>
+<div class="fr"><div class="fg"><label>ÐÐ°ÑÐ° Ð·Ð°ÐºÐ°Ð·Ð°</label><input type="date" id="cod" value="${c?.orderDate||''}"></div><div class="fg"><label>ÐÐ°ÑÐ° Ð¿ÑÐ¾Ð´Ð°Ð¶Ð¸</label><input type="date" id="csd" value="${c?.saleDate||''}"></div></div>
+<div class="fr"><div class="fg"><label>ÐÐ°ÐºÑÐ¿ÐºÐ° $ *</label><input type="number" id="cpu" value="${c?.purchaseUsd||''}" step="0.01" oninput="calcPR()"></div><div class="fg"><label>ÐÑÑÑ Ð¿Ð¾ÐºÑÐ¿ÐºÐ¸</label><input type="number" id="cpr" value="${c?.purchaseRate||db.settings.usdRate}" step="0.1" oninput="calcPR()"></div></div>
+<div class="fg"><label>ÐÐ°ÐºÑÐ¿ÐºÐ° â½</label><input type="number" id="cprb" value="${c?.purchaseRub||''}" readonly style="background:#f8fafc"></div>
+${c&&(c.expenses||[]).length?`<div class="fg"><label>Ð Ð°ÑÑÐ¾Ð´Ñ</label>${(c.expenses||[]).map((e,i)=>`<div class="fbw" style="padding:6px 0;border-bottom:1px solid #eee"><span class="ts">${e.name}: ${e.currency==='USD'?'$'+e.amount:fmt(e.amount)+' â½'}${e.date?' Â· '+e.date:''}</span><button class="btn bb bsm" onclick="rmExp('${id}',${i})">Ã</button></div>`).join('')}</div>`:''}
+<div class="fa"><button class="btn bo" onclick="closeM()">ÐÑÐ¼ÐµÐ½Ð°</button><button class="btn bp" onclick="svCar('${id||''}')">Ð¡Ð¾ÑÑÐ°Ð½Ð¸ÑÑ</button></div>`;openM();if(!c)calcPR()}
 function calcPR(){const u=parseFloat(document.getElementById('cpu')?.value)||0,r=parseFloat(document.getElementById('cpr')?.value)||db.settings.usdRate,el=document.getElementById('cprb');if(el)el.value=Math.round(u*r)}
-function svCar(id){const brand=document.getElementById('cb').value.trim(),model=document.getElementById('cm').value.trim();if(!brand||!model){alert('Марка и модель');return}
-const d={brand,model,year:parseInt(document.getElementById('cy').value)||null,color:document.getElementById('cc').value.trim(),mileage:parseInt(document.getElementById('cmi').value)||null,plate:document.getElementById('cp').value.trim(),vin:document.getElementById('cv').value.trim(),supplierId:document.getElementById('cs').value||null,status:document.getElementById('cst').value,orderDate:document.getElementById('cod').value||null,saleDate:document.getElementById('csd').value||null,purchaseUsd:parseFloat(document.getElementById('cpu').value)||0,purchaseRate:parseFloat(document.getElementById('cpr').value)||db.settings.usdRate,purchaseRub:parseFloat(document.getElementById('cprb').value)||0
+function svCar(id){const brand=document.getElementById('cb').value.trim(),model=document.getElementById('cm').value.trim();if(!brand||!model){alert('ÐÐ°ÑÐºÐ° Ð¸ Ð¼Ð¾Ð´ÐµÐ»Ñ');return}
+const d={brand,model,year:parseInt(document.getElementById('cy').value)||null,color:document.getElementById('cc').value.trim(),mileage:parseInt(document.getElementById('cmi').value)||null,plate:document.getElementById('cp').value.trim(),vin:document.getElementById('cv').value.trim(),supplierId:document.getElementById('cs').value||null,status:document.getElementById('cst').value,orderDate:document.getElementById('cod').value||null,saleDate:document.getElementById('csd').value||null,purchaseUsd:parseFloat(document.getElementById('cpu').value)||0,purchaseRate:parseFloat(document.getElementById('cpr').value)||db.settings.usdRate,purchaseRub:parseFloat(document.getElementById('cprb').value)||0};
+if(id){const i=db.cars.findIndex(x=>x.id===id);if(i>=0){const o=db.cars[i];d.id=id;d.expenses=o.expenses||[];d.salePriceRub=o.salePriceRub;d.saleUsd=o.saleUsd;d.saleRate=o.saleRate;d.buyerName=o.buyerName;d.buyerPhone=o.buyerPhone;if(!d.saleDate&&o.saleDate)d.saleDate=o.saleDate;db.cars[i]=d}}else{d.id=uid();d.expenses=[];if(!d.orderDate)d.orderDate=new Date().toISOString().slice(0,10);db.cars.push(d)}
+save();closeM();rAll()}
+function rmExp(id,i){const c=db.cars.find(x=>x.id===id);if(c&&c.expenses){c.expenses.splice(i,1);save();openCar(id)}}
+function setSt(id,st){const c=db.cars.find(x=>x.id===id);if(c){c.status=st;save();rAll()}}
+function delCar(id){if(!confirm('Ð£Ð´Ð°Ð»Ð¸ÑÑ?'))return;db.cars=db.cars.filter(x=>x.id!==id);save();rAll()}
+function openExp(id){const td=new Date().toISOString().slice(0,10);document.getElementById('mc').innerHTML=`<div class="mh"><h2>Ð Ð°ÑÑÐ¾Ð´</h2><button class="mx" onclick="closeM()">Ã</button></div><div class="fg"><label>ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ *</label><input id="en" placeholder="ÐÐµÑÐµÐ³Ð¾Ð½ / Ð¢Ð°Ð¼Ð¾Ð¶Ð½Ñ / Ð ÐµÐ¼Ð¾Ð½Ñ"></div><div class="fr"><div class="fg"><label>Ð¡ÑÐ¼Ð¼Ð° *</label><input type="number" id="ea" step="0.01"></div><div class="fg"><label>ÐÐ°Ð»ÑÑÐ°</label><select id="ec"><option value="RUB">â½</option><option value="USD">$</option></select></div></div><div class="fr"><div class="fg"><label>ÐÑÑÑ (ÐµÑÐ»Ð¸ $)</label><input type="number" id="er" value="${db.settings.usdRate}" step="0.1"></div><div class="fg"><label>ÐÐ°ÑÐ°</label><input type="date" id="ed" value="${td}"></div></div><div class="fa"><button class="btn bo" onclick="closeM()">ÐÑÐ¼ÐµÐ½Ð°</button><button class="btn bp" onclick="svExp('${id}')">ÐÐ¾Ð±Ð°Ð²Ð¸ÑÑ</button></div>`;openM()}
+function svExp(id){const c=db.cars.find(x=>x.id===id);if(!c)return;const n=document.getElementById('en').value.trim(),a=parseFloat(document.getElementById('ea').value)||0;if(!n||a<=0){alert('ÐÐ°Ð¿Ð¾Ð»Ð½Ð¸ÑÐµ');return}if(!c.expenses)c.expenses=[];c.expenses.push({id:uid(),name:n,amount:a,currency:document.getElementById('ec').value,rate:parseFloat(document.getElementById('er').value)||db.settings.usdRate,date:document.getElementById('ed').value||null});save();closeM();rAll()}
+function openSell(id){const td=new Date().toISOString().slice(0,10);document.getElementById('mc').innerHTML=`<div class="mh"><h2>ÐÑÐ¾Ð´Ð°ÑÑ</h2><button class="mx" onclick="closeM()">Ã</button></div><div class="fg"><label>Ð¦ÐµÐ½Ð° â½ *</label><input type="number" id="sp" oninput="calcSU()"></div><div class="fg"><label>ÐÑÑÑ Ð¿ÑÐ¾Ð´Ð°Ð¶Ð¸</label><input type="number" id="sr" value="${db.settings.usdRate}" step="0.1" oninput="calcSU()"></div><div class="fg"><label>Ð¦ÐµÐ½Ð° $</label><input type="number" id="su" readonly style="background:#f8fafc"></div><div class="fg"><label>ÐÐ°ÑÐ° Ð¿ÑÐ¾Ð´Ð°Ð¶Ð¸</label><input type="date" id="sd" value="${td}"></div><div class="fg"><label>ÐÐ¾ÐºÑÐ¿Ð°ÑÐµÐ»Ñ</label><input id="sb"></div><div class="fg"><label>Ð¢ÐµÐ»ÐµÑÐ¾Ð½</label><input id="sph" type="tel"></div><div class="fa"><button class="btn bo" onclick="closeM()">ÐÑÐ¼ÐµÐ½Ð°</button><button class="btn bok" onclick="svSell('${id}')">ÐÑÐ¾Ð´Ð°ÑÑ</button></div>`;openM()}
+function calcSU(){const r=parseFloat(document.getElementById('sp')?.value)||0,rate=parseFloat(document.getElementById('sr')?.value)||db.settings.usdRate,el=document.getElementById('su');if(el)el.value=rate>0?(r/rate).toFixed(2):0}
+function svSell(id){const c=db.cars.find(x=>x.id===id);if(!c)return;const p=parseFloat(document.getElementById('sp').value)||0;if(p<=0){alert('Ð¦ÐµÐ½Ð°');return}c.salePriceRub=p;c.saleRate=parseFloat(document.getElementById('sr').value)||db.settings.usdRate;c.saleUsd=parseFloat(document.getElementById('su').value)||0;c.saleDate=document.getElementById('sd').value||new Date().toISOString().slice(0,10);c.buyerName=document.getElementById('sb').value.trim();c.buyerPhone=document.getElementById('sph').value.trim();c.status='sold';save();closeM();rAll()}
+function rGoods(){const L=document.getElementById('goodsL'),g=db.goods.slice().reverse();if(!g.length){L.innerHTML='<div class="es"><div class="i">ð±</div>ÐÐµÑ ÑÐ¾Ð²Ð°ÑÐ¾Ð²</div>';return}
+L.innerHTML=g.map(x=>{const pr=(x.salePrice||0)-(x.purchasePrice||0),bg=x.status==='stock'?'<span class="bg bs">Ð Ð½Ð°Ð»Ð¸ÑÐ¸Ð¸</span>':'<span class="bg bdg">ÐÑÐ¾Ð´Ð°Ð½</span>';
+return`<div class="li"><div class="lh"><div><div class="lt">${x.name}</div><div class="lm">IMEI: ${x.imei||'â'}</div></div>${bg}</div><div class="fx"><div><div class="fl2">ÐÐ°ÐºÑÐ¿ÐºÐ°</div><div class="fv">${fmt(x.purchasePrice)} â½</div></div><div><div class="fl2">${x.status==='sold'?'ÐÑÐ¾Ð´Ð°Ð¶Ð°':'Ð¦ÐµÐ½Ð°'}</div><div class="fv">${fmt(x.salePrice||0)} â½</div></div>${x.status==='sold'?`<div style="grid-column:1/-1"><div class="fl2">ÐÑÐ¸Ð±ÑÐ»Ñ</div><div class="fv ${pr>=0?'pos':'neg'}">${pr>=0?'+':''}${fmt(pr)} â½</div></div>`:''}</div><div class="ac">${x.status==='stock'?`<button class="btn bok bsm" onclick="sellG('${x.id}')">ð°</button>`:''}<button class="btn bo bsm" onclick="openGood('${x.id}')">âï¸</button><button class="btn bb bsm" onclick="delG('${x.id}')">ðï¸</button></div></div>`}).join('')}
+function openGood(id){const g=id?db.goods.find(x=>x.id===id):null;document.getElementById('mc').innerHTML=`<div class="mh"><h2>${g?'Ð ÐµÐ´Ð°ÐºÑÐ¸ÑÐ¾Ð²Ð°ÑÑ':'ÐÐ¾Ð²ÑÐ¹ ÑÐ¾Ð²Ð°Ñ'}</h2><button class="mx" onclick="closeM()">Ã</button></div><div class="fg"><label>ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ *</label><input id="gn" value="${esc(g?.name)}"></div><div class="fg"><label>IMEI</label><input id="gi" value="${esc(g?.imei)}"></div><div class="fr"><div class="fg"><label>ÐÐ°ÐºÑÐ¿ÐºÐ° â½</label><input type="number" id="gp" value="${g?.purchasePrice||''}"></div><div class="fg"><label>ÐÑÐ¾Ð´Ð°Ð¶Ð° â½</label><input type="number" id="gs" value="${g?.salePrice||''}"></div></div><div class="fg"><label>Ð¡ÑÐ°ÑÑÑ</label><select id="gst"><option value="stock" ${!g||g.status==='stock'?'selected':''}>Ð Ð½Ð°Ð»Ð¸ÑÐ¸Ð¸</option><option value="sold" ${g?.status==='sold'?'selected':''}>ÐÑÐ¾Ð´Ð°Ð½</option></select></div><div class="fa"><button class="btn bo" onclick="closeM()">ÐÑÐ¼ÐµÐ½Ð°</button><button class="btn bp" onclick="svGood('${id||''}')">OK</button></div>`;openM()}
+function svGood(id){const n=document.getElementById('gn').value.trim();if(!n){alert('ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ');return}const d={name:n,imei:document.getElementById('gi').value.trim(),purchasePrice:parseFloat(document.getElementById('gp').value)||0,salePrice:parseFloat(document.getElementById('gs').value)||0,status:document.getElementById('gst').value};if(id){const i=db.goods.findIndex(x=>x.id===id);if(i>=0){d.id=id;db.goods[i]=d}}else{d.id=uid();db.goods.push(d)}save();closeM();rAll()}
+function sellG(id){const g=db.goods.find(x=>x.id===id);if(!g)return;document.getElementById('mc').innerHTML=`<div class="mh"><h2>ÐÑÐ¾Ð´Ð°ÑÑ</h2><button class="mx" onclick="closeM()">Ã</button></div><div class="fg"><label>Ð¦ÐµÐ½Ð° â½</label><input type="number" id="sgp" value="${g.salePrice||''}"></div><div class="fa"><button class="btn bo" onclick="closeM()">ÐÑÐ¼ÐµÐ½Ð°</button><button class="btn bok" onclick="cfSellG('${id}')">ÐÑÐ¾Ð´Ð°ÑÑ</button></div>`;openM()}
+function cfSellG(id){const g=db.goods.find(x=>x.id===id);if(!g)return;g.salePrice=parseFloat(document.getElementById('sgp').value)||g.salePrice;g.status='sold';save();closeM();rAll()}
+function delG(id){if(!confirm('Ð£Ð´Ð°Ð»Ð¸ÑÑ?'))return;db.goods=db.goods.filter(x=>x.id!==id);save();rAll()}
+function rDebts(){const L=document.getElementById('debtsL'),ds=db.debts.slice().reverse();if(!ds.length){L.innerHTML='<div class="es"><div class="i">ðµ</div>ÐÐµÑ Ð´Ð¾Ð»Ð³Ð¾Ð²</div>';return}
+const rate=db.settings.usdRate;L.innerHTML=ds.map(d=>{const ir=d.currency==='USD'?d.amount*rate:d.amount;return`<div class="li"><div class="lh"><div><div class="lt">${d.creditor}</div><div class="lm">${d.note||''} ${d.dueDate?'Â· Ð´Ð¾ '+d.dueDate:''}</div></div><span class="bg" style="background:#fee2e2;color:#991b1b">${d.currency==='USD'?'$'+fmt(d.amount,0):fmt(d.amount)+' â½'}</span></div><div class="ts tm">Ð â½: ${fmt(ir)}</div><div class="ac"><button class="btn bo bsm" onclick="openDebt('${d.id}')">âï¸</button><button class="btn bb bsm" onclick="delDebt('${d.id}')">ðï¸</button></div></div>`}).join('')}
+function openDebt(id){const d=id?db.debts.find(x=>x.id===id):null;document.getElementById('mc').innerHTML=`<div class="mh"><h2>${d?'Ð ÐµÐ´Ð°ÐºÑÐ¸ÑÐ¾Ð²Ð°ÑÑ':'ÐÐ¾Ð²ÑÐ¹ Ð´Ð¾Ð»Ð³'}</h2><button class="mx" onclick="closeM()">Ã</button></div><div class="fg"><label>ÐÐ¾Ð¼Ñ *</label><input id="dc" value="${esc(d?.creditor)}"></div><div class="fr"><div class="fg"><label>Ð¡ÑÐ¼Ð¼Ð° *</label><input type="number" id="da" value="${d?.amount||''}" step="0.01"></div><div class="fg"><label>ÐÐ°Ð»ÑÑÐ°</label><select id="dcu"><option value="RUB" ${!d||d.currency==='RUB'?'selected':''}>â½</option><option value="USD" ${d?.currency==='USD'?'selected':''}>$</option></select></div></div><div class="fg"><label>Ð¡ÑÐ¾Ðº</label><input type="date" id="dd" value="${d?.dueDate||''}"></div><div class="fg"><label>ÐÐ°Ð¼ÐµÑÐºÐ°</label><textarea id="dn" rows="2">${esc(d?.note)}</textarea></div><div class="fa"><button class="btn bo" onclick="closeM()">ÐÑÐ¼ÐµÐ½Ð°</button><button class="btn bp" onclick="svDebt('${id||''}')">OK</button></div>`;openM()}
+function svDebt(id){const c=document.getElementById('dc').value.trim(),a=parseFloat(document.getElementById('da').value)||0;if(!c||a<=0){alert('ÐÐ°Ð¿Ð¾Ð»Ð½Ð¸ÑÐµ');return}const d={creditor:c,amount:a,currency:document.getElementById('dcu').value,dueDate:document.getElementById('dd').value,note:document.getElementById('dn').value.trim()};if(id){const i=db.debts.findIndex(x=>x.id===id);if(i>=0){d.id=id;db.debts[i]=d}}else{d.id=uid();db.debts.push(d)}save();closeM();rAll()}
+function delDebt(id){if(!confirm('ÐÐ°ÐºÑÑÑÑ?'))return;db.debts=db.debts.filter(x=>x.id!==id);save();rAll()}
+function rSup(){const L=document.getElementById('supL');if(!db.suppliers.length){L.innerHTML='<div class="ts tm" style="padding:8px 0">ÐÐµÑ</div>';return}
+L.innerHTML=db.suppliers.map(s=>`<div class="su"><div><div style="font-weight:600">ð°ð¬ ${s.name}${s.city?' ('+s.city+')':''}</div>${s.phone?`<div class="ts tm">${s.phone}</div>`:''}</div><div style="display:flex;gap:6px"><button class="btn bo bsm" onclick="openSup('${s.id}')">âï¸</button><button class="btn bb bsm" onclick="delSup('${s.id}')">ðï¸</button></div></div>`).join('')}
+function openSup(id){const s=id?db.suppliers.find(x=>x.id===id):null;document.getElementById('mc').innerHTML=`<div class="mh"><h2>${s?'Ð ÐµÐ´Ð°ÐºÑÐ¸ÑÐ¾Ð²Ð°ÑÑ':'ÐÐ¾ÑÑÐ°Ð²ÑÐ¸Ðº'}</h2><button class="mx" onclick="closeM()">Ã</button></div><div class="fg"><label>ÐÐ¼Ñ *</label><input id="sn" value="${esc(s?.name)}"></div><div class="fg"><label>ÐÐ¾ÑÐ¾Ð´</label><select id="sc"><option value="">â</option>${['ÐÐ¸ÑÐºÐµÐº','ÐÑ','ÐÐ¾ÑÐ´Ð¾Ð¹','ÐÐ°ÑÐ°ÐºÐ¾Ð»'].map(c=>`<option value="${c}" ${s?.city===c?'selected':''}>${c}</option>`).join('')}</select></div><div class="fg"><label>Ð¢ÐµÐ»ÐµÑÐ¾Ð½</label><input id="sp" value="${esc(s?.phone)}" type="tel"></div><div class="fg"><label>ÐÐ°Ð¼ÐµÑÐºÐ°</label><input id="sno" value="${esc(s?.note)}"></div><div class="fa"><button class="btn bo" onclick="closeM()">ÐÑÐ¼ÐµÐ½Ð°</button><button class="btn bp" onclick="svSup('${id||''}')">OK</button></div>`;openM()}
+function svSup(id){const n=document.getElementById('sn').value.trim();if(!n){alert('ÐÐ¼Ñ');return}const d={name:n,city:document.getElementById('sc').value,phone:document.getElementById('sp').value.trim(),note:document.getElementById('sno').value.trim()};if(id){const i=db.suppliers.findIndex(x=>x.id===id);if(i>=0){d.id=id;db.suppliers[i]=d}}else{d.id=uid();db.suppliers.push(d)}save();closeM();rSup()}
+function delSup(id){if(!confirm('Ð£Ð´Ð°Ð»Ð¸ÑÑ?'))return;db.suppliers=db.suppliers.filter(x=>x.id!==id);save();rSup()}
+function rMur(){const L=document.getElementById('murL');if(!db.murabaha.length){L.innerHTML='<div class="ts tm" style="padding:8px 0">ÐÐµÑ</div>';return}
+L.innerHTML=db.murabaha.map(m=>{const tot=m.price+m.price*(m.markupPercent/100)*m.months,mon=m.months>0?(tot-m.downPayment)/m.months:0,pd=(m.payments||[]).filter(p=>p.paid).length;
+return`<div class="li"><div class="lt">${m.item}</div><div class="lm">${m.buyer||''} Â· ${m.months} Ð¼ÐµÑ Â· ${m.markupPercent}%</div><div class="fx"><div><div class="fl2">ÐÑÐ¾Ð³Ð¾</div><div class="fv">${fmt(tot)} â½</div></div><div><div class="fl2">ÐÐ·Ð½Ð¾Ñ</div><div class="fv">${fmt(m.downPayment)} â½</div></div><div><div class="fl2">/Ð¼ÐµÑ</div><div class="fv">${fmt(mon)} â½</div></div><div><div class="fl2">ÐÐ¿Ð»Ð°ÑÐµÐ½Ð¾</div><div class="fv">${pd}/${m.months}</div></div></div><div class="ac"><button class="btn bo bsm" onclick="showSch('${m.id}')">ð</button><button class="btn bok bsm" onclick="wa('${m.id}')">WA</button><button class="btn bo bsm" onclick="openMur('${m.id}')">âï¸</button><button class="btn bb bsm" onclick="delMur('${m.id}')">ðï¸</button></div></div>`}).join('')}
+function openMur(id){const m=id?db.murabaha.find(x=>x.id===id):null;document.getElementById('mc').innerHTML=`<div class="mh"><h2>${m?'Ð ÐµÐ´Ð°ÐºÑÐ¸ÑÐ¾Ð²Ð°ÑÑ':'ÐÑÑÐ°Ð±Ð°ÑÐ°'}</h2><button class="mx" onclick="closeM()">Ã</button></div><div class="fg"><label>Ð¢Ð¾Ð²Ð°Ñ *</label><input id="mi" value="${esc(m?.item)}"></div><div class="fg"><label>ÐÐ¾ÐºÑÐ¿Ð°ÑÐµÐ»Ñ</label><input id="mb" value="${esc(m?.buyer)}"></div><div class="fg"><label>Ð¢ÐµÐ»ÐµÑÐ¾Ð½</label><input id="mph" value="${esc(m?.phone)}" type="tel"></div><div class="fr"><div class="fg"><label>Ð¦ÐµÐ½Ð° â½ *</label><input type="number" id="mp" value="${m?.price||''}" oninput="calcMP()"></div><div class="fg"><label>ÐÐ·Ð½Ð¾Ñ â½</label><input type="number" id="md" value="${m?.downPayment||''}" oninput="calcMP()"></div></div><div class="fr"><div class="fg"><label>ÐÐµÑ</label><input type="number" id="mm" value="${m?.months||6}" min="1" max="12" oninput="calcMP()"></div><div class="fg"><label>% /Ð¼ÐµÑ</label><input type="number" id="mk" value="${m?.markupPercent||1.5}" step="0.1" oninput="calcMP()"></div></div><div class="cd" style="background:#f8fafc;margin-bottom:12px"><div class="ts tm">ÐÑÐµÐ´Ð¿ÑÐ¾ÑÐ¼Ð¾ÑÑ</div><div id="mpr" class="ts" style="margin-top:8px">â</div></div><div class="fa"><button class="btn bo" onclick="closeM()">ÐÑÐ¼ÐµÐ½Ð°</button><button class="btn bp" onclick="svMur('${id||''}')">OK</button></div>`;openM();calcMP()}
+function calcMP(){const p=parseFloat(document.getElementById('mp')?.value)||0,d=parseFloat(document.getElementById('md')?.value)||0,m=parseInt(document.getElementById('mm')?.value)||1,k=parseFloat(document.getElementById('mk')?.value)||0,t=p+p*(k/100)*m,mon=m>0?(t-d)/m:0,el=document.getElementById('mpr');if(el)el.innerHTML=`ÐÑÐ¾Ð³Ð¾: <b>${fmt(t)} â½</b><br>/Ð¼ÐµÑ: <b>${fmt(mon)} â½</b>`}
+function svMur(id){const p=parseFloat(document.getElementById('mp').value)||0,m=parseInt(document.getElementById('mm').value)||1,item=document.getElementById('mi').value.trim();if(!item||p<=0){alert('ÐÐ°Ð¿Ð¾Ð»Ð½Ð¸ÑÐµ');return}
+const d={item,buyer:document.getElementById('mb').value.trim(),phone:document.getElementById('mph').value.trim(),price:p,downPayment:parseFloat(document.getElementById('md').value)||0,months:m,markupPercent:parseFloat(document.getElementById('mk').value)||0};
+if(id){const i=db.murabaha.findIndex(x=>x.id===id);if(i>=0){d.id=id;let pay=db.murabaha[i].payments||[];while(pay.length<m)pay.push({paid:false});d.payments=pay.slice(0,m);db.murabaha[i]=d}}else{d.id=uid();d.payments=Array.from({length:m},()=>({paid:false}));db.murabaha.push(d)}
+save();closeM();rMur()}
+function showSch(id){const m=db.murabaha.find(x=>x.id===id);if(!m)return;const t=m.price+m.price*(m.markupPercent/100)*m.months,mon=(t-m.downPayment)/m.months;
+const sch=(m.payments||[]).map((p,i)=>`<div class="si ${p.paid?'pd':''}"><span>${i+1}-Ð¹ Â· ${fmt(mon)} â½</span><button class="btn ${p.paid?'bo':'bok'} bsm" onclick="togP('${id}',${i})">${p.paid?'â':'ÐÑÐ¼ÐµÑÐ¸ÑÑ'}</button></div>`).join('');
+document.getElementById('mc').innerHTML=`<div class="mh"><h2>ÐÑÐ°ÑÐ¸Ðº</h2><button class="mx" onclick="closeM()">Ã</button></div><div class="ts tm mb-8">${m.buyer||''}</div>${sch}<button class="btn bp bbk" style="margin-top:8px" onclick="wa('${id}')">WhatsApp</button>`;openM()}
+function togP(id,i){const m=db.murabaha.find(x=>x.id===id);if(m&&m.payments[i]){m.payments[i].paid=!m.payments[i].paid;save();showSch(id);rMur()}}
+function wa(id){const m=db.murabaha.find(x=>x.id===id);if(!m)return;const t=m.price+m.price*(m.markupPercent/100)*m.months,mon=(t-m.downPayment)/m.months,nx=(m.payments||[]).findIndex(p=>!p.paid);
+const msg=encodeURIComponent(`ÐÑÑÐ°Ð»Ð°Ð¼Ñ Ð°Ð»ÐµÐ¹ÐºÑÐ¼, ${m.buyer||''}!\n\nÐÑÑÐ°Ð±Ð°ÑÐ°: ${m.item}\nÐÐ»Ð°ÑÑÐ¶: ${fmt(mon)} â½${nx>=0?' (â'+(nx+1)+')':''}\n\nAutoTrade`);
+window.open(`https://wa.me/${(m.phone||'').replace(/\D/g,'')}?text=${msg}`,'_blank')}
+function delMur(id){if(!confirm('Ð£Ð´Ð°Ð»Ð¸ÑÑ?'))return;db.murabaha=db.murabaha.filter(x=>x.id!==id);save();rMur()}
+function expD(){const b=new Blob([JSON.stringify(db,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='autotrade_'+new Date().toISOString().slice(0,10)+'.json';a.click()}
+function impD(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{try{const d=JSON.parse(ev.target.result);if(!d.settings)throw new Error('bad');if(!confirm('ÐÐ°Ð¼ÐµÐ½Ð¸ÑÑ Ð²ÑÐµ Ð´Ð°Ð½Ð½ÑÐµ?'))return;db={...def(),...d};if(db.settings.cashRub==null)db.settings.cashRub=0;if(db.settings.cashUsd==null)db.settings.cashUsd=0;['suppliers','cars','goods','debts','murabaha'].forEach(k=>{if(!Array.isArray(db[k]))db[k]=[]});save();document.getElementById('rd').textContent=Number(db.settings.usdRate).toFixed(1);rAll();alert('OK')}catch(err){alert('ÐÑÐ¸Ð±ÐºÐ°')}};r.readAsText(f);e.target.value=''}
+function askP(n){const p=prompt('ÐÐ¾Ð´ Ð´Ð»Ñ Â«'+n+'Â»:');if(p===null)return false;if(p!==PIN){alert('ÐÐµÐ²ÐµÑÐ½ÑÐ¹ ÐºÐ¾Ð´');return false}return true}
+function clr(){if(!askP('ÐÑÐ¸ÑÑÐ¸ÑÑ'))return;if(!confirm('Ð£Ð´Ð°Ð»Ð¸ÑÑ ÐÐ¡Ð?'))return;db=def();save();document.getElementById('rd').textContent='90.0';rAll();alert('ÐÑÐ¸ÑÐµÐ½Ð¾')}
+function demo(){if(!askP('ÐÐµÐ¼Ð¾'))return;if(!confirm('Ð¡Ð±ÑÐ¾ÑÐ¸ÑÑ Ð¸ Ð·Ð°Ð³ÑÑÐ·Ð¸ÑÑ Ð´ÐµÐ¼Ð¾?'))return;
+db=def();db.settings.usdRate=87.6;db.settings.cashRub=150000;db.settings.cashUsd=2500;
+const s1=uid(),s2=uid();
+db.suppliers=[{id:s1,name:'ÐÐ·Ð°Ð¼Ð°Ñ',city:'ÐÐ¸ÑÐºÐµÐº',phone:'+996700123456',note:''},{id:s2,name:'Ð£Ð»Ð°Ð½',city:'ÐÑ',phone:'+996555987654',note:''}];
+db.cars=[{id:uid(),brand:'Hyundai',model:'Sonata',year:2020,color:'Ð§ÑÑÐ½ÑÐ¹',mileage:62000,vin:'KMHEC41',plate:'',supplierId:s1,status:'stock',orderDate:'2026-01-15',saleDate:null,purchaseUsd:12000,purchaseRate:89.5,purchaseRub:1074000,expenses:[{id:uid(),name:'ÐÐµÑÐµÐ³Ð¾Ð½',amount:50000,currency:'RUB',rate:90,date:'2026-01-20'},{id:uid(),name:'Ð¢Ð°Ð¼Ð¾Ð¶Ð½Ñ',amount:30000,currency:'RUB',rate:90,date:'2026-01-25'}]},{id:uid(),brand:'Kia',model:'K5',year:2021,color:'Ð¡ÐµÑÑÐ¹',mileage:41000,vin:'KNAGE41',plate:'',supplierId:s2,status:'transit',orderDate:'2026-02-01',saleDate:null,purchaseUsd:14500,purchaseRate:90,purchaseRub:1305000,expenses:[{id:uid(),name:'ÐÐµÑÐµÐ³Ð¾Ð½',amount:30000,currency:'RUB',rate:90,date:'2026-02-05'}]},{id:uid(),brand:'Toyota',model:'Camry 70',year:2019,color:'ÐÐµÐ»ÑÐ¹',mileage:85000,vin:'JTNB11',plate:'Ð123ÐÐ777',supplierId:s1,status:'sold',orderDate:'2025-11-10',saleDate:'2026-01-20',purchaseUsd:16000,purchaseRate:88,purchaseRub:1408000,expenses:[{id:uid(),name:'ÐÐµÑÐµÐ³Ð¾Ð½',amount:80000,currency:'RUB',rate:88,date:'2025-11-15'},{id:uid(),name:'Ð ÐµÐ¼Ð¾Ð½Ñ',amount:200000,currency:'RUB',rate:88,date:'2025-12-01'}],salePriceRub:2150000,saleRate:91,saleUsd:23626,buyerName:'ÐÐ²Ð°Ð½Ð¾Ð² Ð.Ð¡.',buyerPhone:'+79001234567'}];
+db.goods=[{id:uid(),name:'iPhone 14 Pro',imei:'356938035643809',purchasePrice:72000,salePrice:85000,status:'stock'},{id:uid(),name:'Samsung S23',imei:'359123456789012',purchasePrice:68000,salePrice:79000,status:'sold'}];
+db.debts=[{id:uid(),creditor:'ÐÐ°Ð·Ð¸ÐµÐ² ÐÐ°Ð³Ð¾Ð¼ÐµÐ´',amount:20000,currency:'USD',dueDate:'2026-12-01',note:'ÐÐ¾Ð·Ð²ÑÐ°Ñ Ð² $'}];
+db.murabaha=[{id:uid(),item:'Toyota Camry 2018',buyer:'Ð¡Ð°ÑÑÐ¾ÑÐ¾Ð² Ð .',phone:'79991234567',price:1450000,downPayment:300000,months:6,markupPercent:1.5,payments:[{paid:true},{paid:true},{paid:false},{paid:false},{paid:false},{paid:false}]}];
+save();document.getElementById('rd').textContent='87.6';rAll();go('sum');alert('ÐÐµÐ¼Ð¾ Ð·Ð°Ð³ÑÑÐ¶ÐµÐ½Ð¾')}
+function rAll(){rSum();rCars();rGoods();rDebts();rSup();rMur()}
+load();rAll();
+</script>
+</body>
+</html>
