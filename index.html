@@ -137,3 +137,66 @@ body{padding-bottom:calc(68px + var(--sb))}
 <div class="mo" id="ov" onclick="if(event.target===this)closeM()"><div class="md" id="mc"></div></div>
 
 <script>
+const SK='autotrade_v3',PIN='0537';
+const def=()=>({settings:{usdRate:90,cashRub:0,cashUsd:0},suppliers:[],cars:[],goods:[],debts:[],murabaha:[]});
+let db=def(),cf='all';
+function load(){try{const r=localStorage.getItem(SK);if(r){const p=JSON.parse(r);db={...def(),...p};if(!db.settings)db.settings={usdRate:90,cashRub:0,cashUsd:0};if(db.settings.cashRub==null)db.settings.cashRub=0;if(db.settings.cashUsd==null)db.settings.cashUsd=0;['suppliers','cars','goods','debts','murabaha'].forEach(k=>{if(!Array.isArray(db[k]))db[k]=[]})}}catch(e){db=def()}document.getElementById('rd').textContent=Number(db.settings.usdRate).toFixed(1)}
+function save(){localStorage.setItem(SK,JSON.stringify(db))}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,8)}
+function fmt(n,d=0){return Number(n||0).toLocaleString('ru-RU',{maximumFractionDigits:d,minimumFractionDigits:d})}
+function toR(a,c,r){return c==='USD'?(a||0)*(r||db.settings.usdRate):(a||0)}
+function esc(s){return(s||'').replace(/"/g,'&quot;').replace(/</g,'&lt;')}
+function go(n){document.querySelectorAll('.scr').forEach(s=>s.classList.remove('on'));document.getElementById('s-'+n).classList.add('on');document.querySelectorAll('.ni').forEach(x=>x.classList.toggle('on',x.dataset.s===n));if(n==='sum')rSum();if(n==='cars')rCars();if(n==='goods')rGoods();if(n==='debts')rDebts();if(n==='more'){rSup();rMur()}}
+function openM(){document.getElementById('ov').classList.add('open');document.body.style.overflow='hidden'}
+function closeM(){document.getElementById('ov').classList.remove('open');document.body.style.overflow=''}
+function openRate(){document.getElementById('mc').innerHTML=`<div class="mh"><h2>Курс $</h2><button class="mx" onclick="closeM()">×</button></div><div class="fg"><label>1 $ = ? ₽</label><input type="number" id="ri" value="${db.settings.usdRate}" step="0.1"></div><div class="fa"><button class="btn bo" onclick="closeM()">Отмена</button><button class="btn bp" onclick="svRate()">OK</button></div>`;openM()}
+function svRate(){const v=parseFloat(document.getElementById('ri').value);if(!v||v<1){alert('Неверный курс');return}db.settings.usdRate=v;save();document.getElementById('rd').textContent=v.toFixed(1);closeM();rAll()}
+function openCash(){document.getElementById('mc').innerHTML=`<div class="mh"><h2>Деньги на руках</h2><button class="mx" onclick="closeM()">×</button></div><div class="fg"><label>Рубли (₽)</label><input type="number" id="cr" value="${db.settings.cashRub||0}"></div><div class="fg"><label>Доллары ($)</label><input type="number" id="cu" value="${db.settings.cashUsd||0}" step="0.01"></div><p class="ts tm">Свободные деньги</p><div class="fa"><button class="btn bo" onclick="closeM()">Отмена</button><button class="btn bp" onclick="svCash()">Сохранить</button></div>`;openM()}
+function svCash(){db.settings.cashRub=parseFloat(document.getElementById('cr').value)||0;db.settings.cashUsd=parseFloat(document.getElementById('cu').value)||0;save();closeM();rAll()}
+function cost(c){let x=c.purchaseRub||0;(c.expenses||[]).forEach(e=>{x+=toR(e.amount,e.currency,e.rate)});return x}
+function profit(c){return c.status==='sold'&&c.salePriceRub?c.salePriceRub-cost(c):0}
+function tot(){const rate=db.settings.usdRate||90;let tR=0,sR=0,pR=0,t=0,s=0;
+db.cars.forEach(c=>{const co=cost(c);if(c.status==='transit'){t++;tR+=co}else if(c.status==='stock'){s++;sR+=co}else if(c.status==='sold')pR+=profit(c)});
+db.goods.forEach(g=>{if(g.status==='stock')sR+=(g.purchasePrice||0);else if(g.status==='sold')pR+=((g.salePrice||0)-(g.purchasePrice||0))});
+const fr=tR+sR,cR=(db.settings.cashRub||0)+(db.settings.cashUsd||0)*rate;
+let dR=0,dU=0;db.debts.forEach(d=>{if(d.currency==='USD'){dU+=d.amount;dR+=d.amount*rate}else{dR+=d.amount;dU+=d.amount/rate}});
+const aR=cR+fr+pR;return{cRo:db.settings.cashRub||0,cUo:db.settings.cashUsd||0,cR,tR,tU:tR/rate,sR,sU:sR/rate,fr,frU:fr/rate,pR,pU:pR/rate,dR,dU,aR,aU:aR/rate,nR:aR-dR,nU:(aR-dR)/rate,t,s}}
+function rSum(){const t=tot();
+document.getElementById('ncR').textContent=fmt(t.nR)+' ₽';document.getElementById('ncU').textContent='$ '+fmt(t.nU,0);
+document.getElementById('cR').textContent=fmt(t.cRo)+' ₽';document.getElementById('cU').textContent='$ '+fmt(t.cUo,0);
+document.getElementById('frR').textContent=fmt(t.fr)+' ₽';document.getElementById('frU').textContent='$ '+fmt(t.frU,0);
+document.getElementById('prR').textContent=(t.pR>=0?'+':'')+fmt(t.pR)+' ₽';document.getElementById('prU').textContent=(t.pU>=0?'+$':'-$')+' '+fmt(Math.abs(t.pU),0);
+document.getElementById('dbR').textContent=fmt(t.dR)+' ₽';document.getElementById('dbU').textContent='$ '+fmt(t.dU,0);
+document.getElementById('bCR').textContent=fmt(t.cR)+' ₽';document.getElementById('bCU').textContent='$ '+fmt(t.cR/(db.settings.usdRate||90),0);
+document.getElementById('bTR').textContent=fmt(t.tR)+' ₽';document.getElementById('bTU').textContent='$ '+fmt(t.tU,0);
+document.getElementById('bSR').textContent=fmt(t.sR)+' ₽';document.getElementById('bSU').textContent='$ '+fmt(t.sU,0);
+document.getElementById('bAR').textContent=fmt(t.aR)+' ₽';document.getElementById('bAU').textContent='$ '+fmt(t.aU,0);
+document.getElementById('nT').textContent=t.t;document.getElementById('nS').textContent=t.s}
+function fCars(f){cf=f;document.querySelectorAll('#s-cars .fb').forEach(b=>b.classList.toggle('on',b.dataset.f===f));rCars()}
+function rCars(){const L=document.getElementById('carsL');let cars=db.cars.slice().reverse();if(cf!=='all')cars=cars.filter(c=>c.status===cf);
+if(!cars.length){L.innerHTML='<div class="es"><div class="i">🚗</div>Нет авто</div>';return}
+L.innerHTML=cars.map(c=>{const co=cost(c),pr=profit(c),sup=db.suppliers.find(s=>s.id===c.supplierId),ex=(c.expenses||[]).reduce((s,e)=>s+toR(e.amount,e.currency,e.rate),0);
+const bg=c.status==='transit'?'<span class="bg bw">В пути</span>':c.status==='stock'?'<span class="bg bs">В наличии</span>':'<span class="bg bdg">Продано</span>';
+const dt=[];if(c.orderDate)dt.push('Заказ: '+c.orderDate);if(c.saleDate)dt.push('Продажа: '+c.saleDate);
+let fx=`<div class="fx"><div><div class="fl2">Закупка</div><div class="fv">$${fmt(c.purchaseUsd,0)}<br><span class="tm">(${fmt(c.purchaseRub)} ₽)</span></div></div><div><div class="fl2">Расходы</div><div class="fv">${fmt(ex)} ₽</div></div><div><div class="fl2">Себестоимость</div><div class="fv">${fmt(co)} ₽</div></div><div><div class="fl2">Курс</div><div class="fv">${c.purchaseRate||'—'} ₽</div></div></div>`;
+if(c.expenses&&c.expenses.length)fx+=`<div class="ts tm" style="margin-bottom:8px">${c.expenses.map(e=>`• ${e.name}: ${e.currency==='USD'?'$'+fmt(e.amount,0):fmt(e.amount)+' ₽'}${e.date?' · '+e.date:''}`).join('<br>')}</div>`;
+if(c.status==='sold')fx+=`<div class="fx" style="background:#f0fdf4"><div><div class="fl2">Продажа</div><div class="fv">${fmt(c.salePriceRub)} ₽</div></div><div><div class="fl2">Прибыль</div><div class="fv ${pr>=0?'pos':'neg'}">${pr>=0?'+':''}${fmt(pr)} ₽</div></div><div style="grid-column:1/-1"><div class="fl2">Покупатель</div><div class="fv">${c.buyerName||'—'} ${c.buyerPhone||''}</div></div></div>`;
+let ac=`<div class="ac">`;if(c.status!=='sold'){ac+=`<button class="btn bo bsm" onclick="openExp('${c.id}')">+ Расход</button>`;if(c.status==='transit')ac+=`<button class="btn bo bsm" onclick="setSt('${c.id}','stock')">📍 Прибыла</button>`;ac+=`<button class="btn bp bsm" onclick="openSell('${c.id}')">💰 Продать</button>`}
+ac+=`<button class="btn bo bsm" onclick="openCar('${c.id}')">✏️</button><button class="btn bb bsm" onclick="delCar('${c.id}')">🗑️</button></div>`;
+return`<div class="li"><div class="lh"><div><div class="lt">${c.brand} ${c.model}${c.year?' ('+c.year+')':''}</div><div class="lm">VIN: ${c.vin||'—'} · ${sup?sup.name+(sup.city?' ('+sup.city+')':''):'—'}</div>${c.color||c.mileage||c.plate?`<div class="lm">${[c.color,c.mileage?fmt(c.mileage)+' км':'',c.plate].filter(Boolean).join(' · ')}</div>`:''}${dt.length?`<div class="lm">${dt.join(' · ')}</div>`:''}</div>${bg}</div>${fx}${ac}</div>`}).join('')}
+function openCar(id){const c=id?db.cars.find(x=>x.id===id):null;const so=db.suppliers.map(s=>`<option value="${s.id}" ${c&&c.supplierId===s.id?'selected':''}>${s.name}${s.city?' ('+s.city+')':''}</option>`).join('');
+document.getElementById('mc').innerHTML=`<div class="mh"><h2>${c?'Редактировать':'Новое авто'}</h2><button class="mx" onclick="closeM()">×</button></div>
+<div class="fg"><label>Марка *</label><input id="cb" value="${esc(c?.brand)}"></div><div class="fg"><label>Модель *</label><input id="cm" value="${esc(c?.model)}"></div>
+<div class="fr"><div class="fg"><label>Год</label><input type="number" id="cy" value="${c?.year||''}"></div><div class="fg"><label>Цвет</label><input id="cc" value="${esc(c?.color)}"></div></div>
+<div class="fr"><div class="fg"><label>Пробег</label><input type="number" id="cmi" value="${c?.mileage||''}"></div><div class="fg"><label>Госномер</label><input id="cp" value="${esc(c?.plate)}"></div></div>
+<div class="fg"><label>VIN</label><input id="cv" value="${esc(c?.vin)}"></div>
+<div class="fg"><label>Поставщик</label><select id="cs"><option value="">—</option>${so}</select></div>
+<div class="fg"><label>Статус</label><select id="cst"><option value="transit" ${!c||c.status==='transit'?'selected':''}>В пути</option><option value="stock" ${c?.status==='stock'?'selected':''}>В наличии</option><option value="sold" ${c?.status==='sold'?'selected':''}>Продана</option></select></div>
+<div class="fr"><div class="fg"><label>Дата заказа</label><input type="date" id="cod" value="${c?.orderDate||''}"></div><div class="fg"><label>Дата продажи</label><input type="date" id="csd" value="${c?.saleDate||''}"></div></div>
+<div class="fr"><div class="fg"><label>Закупка $ *</label><input type="number" id="cpu" value="${c?.purchaseUsd||''}" step="0.01" oninput="calcPR()"></div><div class="fg"><label>Курс покупки</label><input type="number" id="cpr" value="${c?.purchaseRate||db.settings.usdRate}" step="0.1" oninput="calcPR()"></div></div>
+<div class="fg"><label>Закупка ₽</label><input type="number" id="cprb" value="${c?.purchaseRub||''}" readonly style="background:#f8fafc"></div>
+${c&&(c.expenses||[]).length?`<div class="fg"><label>Расходы</label>${(c.expenses||[]).map((e,i)=>`<div class="fbw" style="padding:6px 0;border-bottom:1px solid #eee"><span class="ts">${e.name}: ${e.currency==='USD'?'$'+e.amount:fmt(e.amount)+' ₽'}${e.date?' · '+e.date:''}</span><button class="btn bb bsm" onclick="rmExp('${id}',${i})">×</button></div>`).join('')}</div>`:''}
+<div class="fa"><button class="btn bo" onclick="closeM()">Отмена</button><button class="btn bp" onclick="svCar('${id||''}')">Сохранить</button></div>`;openM();if(!c)calcPR()}
+function calcPR(){const u=parseFloat(document.getElementById('cpu')?.value)||0,r=parseFloat(document.getElementById('cpr')?.value)||db.settings.usdRate,el=document.getElementById('cprb');if(el)el.value=Math.round(u*r)}
+function svCar(id){const brand=document.getElementById('cb').value.trim(),model=document.getElementById('cm').value.trim();if(!brand||!model){alert('Марка и модель');return}
+const d={brand,model,year:parseInt(document.getElementById('cy').value)||null,color:document.getElementById('cc').value.trim(),mileage:parseInt(document.getElementById('cmi').value)||null,plate:document.getElementById('cp').value.trim(),vin:document.getElementById('cv').value.trim(),supplierId:document.getElementById('cs').value||null,status:document.getElementById('cst').value,orderDate:document.getElementById('cod').value||null,saleDate:document.getElementById('csd').value||null,purchaseUsd:parseFloat(document.getElementById('cpu').value)||0,purchaseRate:parseFloat(document.getElementById('cpr').value)||db.settings.usdRate,purchaseRub:parseFloat(document.getElementById('cprb').value)||0
